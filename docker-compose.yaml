@@ -1,0 +1,54 @@
+services:
+  postgres_local:
+    image: postgres:15-alpine
+    container_name: guigostosaobanco
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: guigostoso
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./Database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - dados_do_banco:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d guigostoso"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - banco_guigostoso
+
+  backend:
+    networks:
+      - banco_guigostoso
+    image: guigotoso/banco-node-back:1.1
+    container_name: guigostosaob
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=guigostoso
+      - DB_HOST=postgres_local
+      - DB_PORT=5432
+
+    ports:
+      - "3000:3000"
+      
+    depends_on:
+      postgres_local:
+        condition: service_healthy
+    command: npm run start
+
+  frontend:
+    networks:
+      - banco_guigostoso
+    image: guigotoso/banco-node-front:1.4
+    container_name: guigostosaof
+    ports:
+      - "3001:3001"
+
+networks:
+  banco_guigostoso:
+
+volumes:
+  dados_do_banco:

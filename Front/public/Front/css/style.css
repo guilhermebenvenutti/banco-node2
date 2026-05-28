@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.8em;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-weight: normal;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: #00c853;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #00b140;
+}
+
+a {
+    color: #a0d8ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #ff5252;
+    margin-top: 10px;
+}
+
+
+/* ================= CARTÃO DE DÉBITO ================= */
+.cartao-container {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cartao {
+    width: 100%;
+    max-width: 340px;
+    height: 210px;
+    background: linear-gradient(135deg, #141e30, #243b55); /* Cartão estilo Black */
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efeito de brilho no cartão */
+.cartao::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.cartao-logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    align-self: flex-end;
+    color: #a0d8ff;
+}
+
+.cartao-chip {
+    width: 45px;
+    height: 35px;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    border-radius: 5px;
+    margin-top: -10px;
+}
+
+.cartao-numero {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.cartao-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.cartao-nome {
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.cartao-validade {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+.cartao-validade span:last-child {
+    font-size: 1.3em;
+}
+
+
+
+/* ================= TELA DE TRANSFERÊNCIA (DARK MODE) ================= */
+/* Fundo escuro atrás do cartão */
+body {
+    background-color: #0a0a0a; 
+}
+
+.transferencia-card {
+    background-color: #141414; /* Cinza super escuro */
+    width: 100%;
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    border: 1px solid #2a2a2a;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Título com gradiente verde */
+.logo-text {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 5px;
+    background: linear-gradient(90deg, #00c853, #69f0ae);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.tela-titulo {
+    font-size: 16px;
+    color: #888888;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.pix-icon {
+    color: #32bcad; /* Cor oficial do Banco Central */
+    font-size: 18px;
+}
+
+/* Alinhamento dos inputs */
+.input-group {
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Campos de digitação Premium */
+.input-dark {
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 1.5px solid #333333;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.input-dark::placeholder {
+    color: #555555;
+}
+
+/* O brilho verde quando clica no campo */
+.input-dark:focus {
+    border-color: #00c853;
+    box-shadow: 0 0 12px rgba(0, 200, 83, 0.2);
+    background-color: #242424;
+}
+
+/* Ícone de R$ embutido no input */
+.input-com-icone {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icone-moeda {
+    position: absolute;
+    left: 16px;
+    color: #00c853;
+    font-weight: bold;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.input-com-icone .input-dark {
+    padding-left: 50px; /* Dá espaço pro R$ não encavalar no texto */
+}
+
+/* Arrumando o Patinho Feio (Textarea) */
+textarea.input-dark {
+    height: 90px;
+    resize: none;
+}
+
+/* ================= BOTÕES ================= */
+/* Ação Primária: Destaque máximo */
+.btn-primario-dark {
+    width: 100%;
+    background: #00c853;
+    color: #000000; /* Texto preto no fundo verde passa ideia de ação imediata */
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.btn-primario-dark:hover {
+    background: #00e676;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3);
+}
+
+.btn-primario-dark:disabled {
+    background: #333333;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Ação Secundária: Discreta (Botão Fantasma) */
+.btn-secundario-dark {
+    width: 100%;
+    background-color: transparent;
+    color: #888888;
+    border: 1px solid #444444;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secundario-dark:hover {
+    border-color: #666666;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.mensagem-erro {
+    margin-top: 18px;
+    color: #ff5252;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ================= COMPROVANTE PIX ================= */
+.comprovante-detalhes {
+    background-color: #1e1e1e;
+    padding: 25px 20px;
+    border-radius: 12px;
+    border: 1px dashed #333333;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.comprovante-detalhes p {
+    font-size: 14px;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 8px;
+}
+
+.comprovante-detalhes strong {
+    color: #888888;
+}
+
+.comprovante-detalhes span {
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}

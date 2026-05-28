@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco LOF</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>GGBank</h1>
+    <h2>Olá, <span id="nomeUsuario">Usuário</span></h2>
+    
+    <div style="margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 10px;">
+      <p>Saldo Atual</p>
+      <h3 id="saldo">R$ 0,00</h3>
+    </div>
+
+
+    <!-- NOVO: O CARTÃO DE DÉBITO -->
+    <div class="cartao-container">
+      <div class="cartao">
+        <div class="cartao-logo">GGBank</div>
+        <div class="cartao-chip"></div>
+        <div class="cartao-numero" id="cartaoNumero">**** **** **** ****</div>
+        <div class="cartao-info">
+          <div class="cartao-nome" id="cartaoNome">NOME DO CLIENTE</div>
+          <div class="cartao-validade">
+            <span>Validade</span>
+            <span id="cartaoValidade">--/--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="window.location.href='transferencia.html'">Fazer Transferência</button>
+    <button onclick="logout()">Sair</button>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+    <h3 style="margin: 0;">Histórico de Transações</h3>
+    <a href="historico.html" style="color: #00c853; text-decoration: none; font-size: 13px; font-weight: bold;">Ver todos ➔</a>
+</div>
+    <div id="historico" style="text-align: left; margin-top: 15px;"></div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

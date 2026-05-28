@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGBank - Histórico Completo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Biblioteca do PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="transferencia-card" style="max-width: 500px;">
+        <h2 class="tela-titulo">Extrato Completo <span class="pix-icon">🧾</span></h2>
+        
+        <div id="listaCompleta" style="text-align: left; margin-bottom: 20px; max-height: 400px; overflow-y: auto; padding-right: 10px;">
+            <!-- O JS vai injetar o histórico aqui -->
+        </div>
+
+        <button type="button" class="btn-secundario-dark" onclick="window.location.href='dashboard.html'">Voltar ao Dashboard</button>
+    </div>
+
+    <!-- TELA OCULTA PARA GERAR O PDF -->
+    <div id="areaComprovanteOculto" style="display: none;">
+        <div id="comprovante-print">
+            <h2 style="color: #00c853; margin-bottom: 20px;">Comprovante GGBank 💠</h2>
+            <div class="comprovante-detalhes">
+                <p><strong>Valor:</strong> <span id="compValor"></span></p>
+                <p><strong>Descrição:</strong> <span id="compDesc"></span></p>
+                <p><strong>Data/Hora:</strong> <span id="compData"></span></p>
+                <p><strong>Autenticação:</strong> <span id="compID"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/historico.js"></script>
+</body>
+</html>

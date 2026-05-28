@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco LOF - Transferência</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- NOVA TELA DE TRANSFERÊNCIA DARK MODE -->
+<div class="transferencia-card dark-mode">
+    <h1 class="logo-text">GGBank</h1>
+    <h2 class="tela-titulo">Área PIX <span class="pix-icon">💠</span></h2>
+
+    <form id="transferenciaForm">
+        <!-- Campo CPF -->
+        <div class="input-group">
+            <label for="cpfDestino">CPF do recebedor</label>
+            <input type="text" id="cpfDestino" placeholder="000.000.000-00" maxlength="14" required class="input-dark">
+        </div>
+
+        <!-- Campo Valor com ícone embutido -->
+        <div class="input-group">
+            <label for="valor">Valor da transferência</label>
+            <div class="input-com-icone">
+                <span class="icone-moeda">R$</span>
+                <input type="number" id="valor" placeholder="0.00" step="0.01" required class="input-dark">
+            </div>
+        </div>
+
+        <!-- Campo Descrição -->
+        <div class="input-group">
+            <label for="descricao">Mensagem (opcional)</label>
+            <textarea id="descricao" placeholder="Ex: Doação de fundos..." class="input-dark"></textarea>
+        </div>
+
+        <!-- Botões com Hierarquia -->
+        <button type="submit" class="btn-primario-dark" id="btnTransferir">Fazer PIX</button>
+        <button type="button" class="btn-secundario-dark" onclick="window.location.href='dashboard.html'">Voltar ao Dashboard</button>
+    </form>
+
+    <!-- TELA DE COMPROVANTE (Escondida por padrão) -->
+        <div id="areaComprovante" style="display: none;">
+            <div id="comprovante-print">
+                <h2 style="color: #00c853; margin-bottom: 20px;">PIX Realizado! 💠</h2>
+                <div class="comprovante-detalhes">
+                    <p><strong>Valor:</strong> <span id="compValor">R$ 0,00</span></p>
+                    <p><strong>Para:</strong> <span id="compNome">---</span></p>
+                    <p><strong>CPF/Chave:</strong> <span id="compCpf">---</span></p>
+                    <p><strong>Data/Hora:</strong> <span id="compData">---</span></p>
+                    <p><strong>Autenticação:</strong> <span id="compID">---</span></p>
+                </div>
+            </div>
+            
+            <button type="button" class="btn-primario-dark" onclick="baixarPDF()">📄 Salvar como PDF</button>
+            <button type="button" class="btn-secundario-dark" onclick="window.location.href='dashboard.html'">Voltar ao Início</button>
+        </div>
+    
+    <p id="mensagem" class="mensagem-erro"></p>
+</div>
+
+
+  <script src="js/transferencia.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
