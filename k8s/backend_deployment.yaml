@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: guigotoso/banco-node-back:1.5
+          image: guigotoso/banco-node-back:1.0
           ports:
             - containerPort: 3000
           envFrom:
